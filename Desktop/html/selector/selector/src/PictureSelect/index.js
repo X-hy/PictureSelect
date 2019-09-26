@@ -38,7 +38,7 @@ class PictureSelect extends Component {
     }
     checkThis(item) {
         item.checked = !item.checked;
-        if (item.name === '全选') { // 如果点击的是全选，就把所有的选中或全部取消勾选
+        if (item.name === '全选') { 
             if (item.checked) {
                 this.state.checklist.forEach(i => {
                     i.checked = true;
@@ -50,7 +50,7 @@ class PictureSelect extends Component {
             }
 
         }
-        // 如果全选之后，取消勾选其中的一个或多个，则会把全选也取消勾选掉
+        
         let result = this.state.checklist.some(j => {
             if (!j.checked) {
                 return true;
@@ -63,7 +63,7 @@ class PictureSelect extends Component {
 
         let len = this.state.checklist.length
         let ev = true;
-        for (let a = 1; a < len; a++) { // 遍历，如果列表里除了第一个之外，其他的都勾选的话，就把全选按钮也勾选掉
+        for (let a = 1; a < len; a++) {
             if (!this.state.checklist[a].checked) {
                 ev = false;
             }
@@ -72,7 +72,7 @@ class PictureSelect extends Component {
             this.state.checklist[0].checked = true;
         }
 
-        this.setState({ // 每点击一次更新状态
+        this.setState({ 
             checklist: this.state.checklist
         })
     }
